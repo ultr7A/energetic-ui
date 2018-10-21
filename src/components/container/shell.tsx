@@ -1,11 +1,11 @@
 /* General shell / dashboard UI */
 import * as React from "react"; import { Component } from "react";
-import { SideMenu } from '../nav/side-menu'
-import { Button } from '../button/button'
+
 import { isMobile } from '../../util'
 
 interface ShellProps {
   dispatch?: (action: any) => void
+  sideMenu?: Component,
   cwd?: any[]
   currentSpace?: string
   worldUser?: string
@@ -119,11 +119,11 @@ export class Shell extends Component<ShellProps, any> {
   }
 
   render() {
-
     let hasMenu = !!this.props.hasMenu,
         menuOnly = !!this.props.menuOnly,
         menuOpen = !!this.props.menuOpen,
-        noBackground = !!this.props.noBackground
+        noBackground = !!this.props.noBackground;
+
     return (
         <div style={styles.shell(hasMenu, menuOpen, menuOnly, noBackground, this.state.droppingFile) as any}
             onDrop={e=> {
@@ -142,9 +142,7 @@ export class Shell extends Component<ShellProps, any> {
             className={ this.props.htmlClassName || 'shell' }
             id='shell'
         >
-            {hasMenu ? (
-              <SideMenu />
-            ) : ''}
+            {hasMenu ? this.props.sideMenu : ''}
             {menuOnly ? '' : (
               <div style={{ ...styles.inner(), ...this.props.innerStyle} as any}>
                   {this.props.children}
