@@ -1,8 +1,8 @@
 {
   "name": "energetic-ui",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "post-material ui react components and design language",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "build": "rm -rf ./lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
