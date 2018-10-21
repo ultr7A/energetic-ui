@@ -1,7 +1,7 @@
 import * as React from "react"; 
 import { Component } from "react";
-import Button from '../button/button'
-import ContextMenu from './context-menu'
+import { Button } from '../button/button'
+import { ContextMenu } from './context-menu'
 
 interface CardProps {
   color?: any
@@ -18,7 +18,7 @@ interface CardProps {
   clickHandler: Function
   contextMenuOptions?: any[]
 }
-export default class Card extends Component<CardProps, any> {
+export class Card extends Component<CardProps, any> {
 
   private defaultProps: CardProps
 

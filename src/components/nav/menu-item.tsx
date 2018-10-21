@@ -1,8 +1,8 @@
 /* menu item */
 import * as React from "react"; import { Component } from "react";
-import Button from '../button/button'
+import { Button } from '../button/button'
 
-export default class MenuItem extends Component<any, any> {
+export class MenuItem extends Component<any, any> {
     private defaultProps = {
         title: "Menu Item"
     }

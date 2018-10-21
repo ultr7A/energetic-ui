@@ -1,8 +1,7 @@
 import * as React from "react"; import { Component } from "react";
-import FileButton from '../components/button/file-button'
+import { FileButton } from '../components/button/file-button'
 
-
-class UploadFiles extends Component<any, any> {
+export class UploadFiles extends Component<any, any> {
 
   componentWillMount () {
     this.setState({

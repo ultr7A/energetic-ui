@@ -1,5 +1,5 @@
 import * as React from "react"; import { Component } from "react";
-import FileButton from '../components/button/file-button'
+import { FileButton } from '../components/button/file-button'
 import { isMobile } from '../util'
 import { 
   textAreaStyle,
@@ -11,7 +11,7 @@ import {
   rgb
 } from '../util'
 
-export default class TextEditor extends Component<any, any> {
+export class TextEditor extends Component<any, any> {
 
 
 

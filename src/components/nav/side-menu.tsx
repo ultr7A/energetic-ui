@@ -1,8 +1,8 @@
 import * as React from "react"; import { Component } from "react";
-import Tab from './tab'
+import { Tab } from './tab'
 import { isMobile } from '../../util'
 
-export default class SideMenu extends Component<any, any> {
+export class SideMenu extends Component<any, any> {
 
   componentWillMount () {
     this.setState({

@@ -11,7 +11,7 @@ let styles = {
   file: buttonFileStyle
 }
 
-export default class Button extends Component<any, any> {
+export class Button extends Component<any, any> {
 
   public props: {
     style?: any

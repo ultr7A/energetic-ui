@@ -1,7 +1,7 @@
 /* General shell / dashboard UI */
 import * as React from "react"; import { Component } from "react";
-import SideMenu from '../nav/side-menu'
-import Button from '../button/button'
+import { SideMenu } from '../nav/side-menu'
+import { Button } from '../button/button'
 import { isMobile } from '../../util'
 
 interface ShellProps {
@@ -25,7 +25,7 @@ interface ShellProps {
   menuOpen?: boolean
 }
 
-export default class Shell extends Component<ShellProps, any> {
+export class Shell extends Component<ShellProps, any> {
 
   static get defaultProps () {
     return {

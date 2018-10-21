@@ -11,7 +11,7 @@ type FileButtonProps = {
   onClick: Function
 }
 
-export default class FileButton extends Component<FileButtonProps, any> {
+export class FileButton extends Component<FileButtonProps, any> {
 
   private defaultProps: FileButtonProps
 

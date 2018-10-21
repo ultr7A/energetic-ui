@@ -1,5 +1,5 @@
 import * as React from "react"; import { Component } from "react";;
-import Button from '../button/button';
+import { Button } from '../button/button';
 import { isMobile } from '../../util'
 import {
   tabStyle,
@@ -15,7 +15,7 @@ let styles = {
   }
 }
 
-export default class Tab extends Component<any, any> {
+export class Tab extends Component<any, any> {
   static get defaultProps() {
     return {
       title: "Menu Item",

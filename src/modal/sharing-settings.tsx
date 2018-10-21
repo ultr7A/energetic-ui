@@ -1,5 +1,5 @@
 import * as React from "react"; import { Component } from "react";
-import FileButton from '../components/button/file-button'
+import { FileButton } from '../components/button/file-button'
 import {
   rgba,
   rgb
@@ -12,7 +12,7 @@ import {
 
 import { isMobile } from '../util'
 
-export default class SharingSettings extends Component<any, any> {
+export class SharingSettings extends Component<any, any> {
 
   componentWillMount () {
 

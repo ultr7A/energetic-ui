@@ -7,7 +7,7 @@ type VectorInputProps = {
     decimalPlaces: number
 }
 
-export default class VectorInput extends Component<any, any> {
+export class VectorInput extends Component<any, any> {
 
     public static defaultProps: Partial<VectorInputProps> = {
         title: "Button",

@@ -1,8 +1,8 @@
 import * as React from "react"; import { Component } from "react";
-import NewFolder from '../../modal/new-folder'
-import TextEditor from '../../modal/text-editor'
-import SharingSettings from '../../modal/sharing-settings'
-import MoveFile from '../../modal/move-file'
+import { NewFolder } from '../../modal/new-folder'
+import { TextEditor } from '../../modal/text-editor'
+import { SharingSettings } from '../../modal/sharing-settings'
+import { MoveFile } from '../../modal/move-file'
 import { isMobile } from '../../util'
 
 type LocationBarProps = {
@@ -16,7 +16,7 @@ type LocationBarProps = {
   extraOptionProps: { [_:string]: any }
 }
 
-export default class LocationBar extends Component<any, any> {
+export class LocationBar extends Component<any, any> {
   public defaultProps: LocationBarProps;
   
   componentWillMount () {

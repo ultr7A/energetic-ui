@@ -1,6 +1,6 @@
 import * as React from "react"; 
 import { Component } from "react";
-import Button from '../button/button'
+import { Button } from '../button/button'
 
 interface ContextMenuProps {
   options: any
@@ -16,7 +16,7 @@ interface ContextMenuProps {
   color?: any
 }
 
-export default class ContextMenu extends Component<ContextMenuProps, any> {
+export class ContextMenu extends Component<ContextMenuProps, any> {
 
   public static defaultProps: Partial<ContextMenuProps> = {
     title: "File Options",
