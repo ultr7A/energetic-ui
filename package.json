@@ -1,11 +1,10 @@
 {
   "name": "energetic-ui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "post-material ui react components and design language",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./lib && tsc",
-    "prepare": "yarn build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
