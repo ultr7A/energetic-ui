@@ -1,0 +1,34 @@
+{
+  "name": "energetic-ui",
+  "version": "0.1.0",
+  "description": "post-material ui react components and design language",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf ./lib && tsc",
+    "prepare": "yarn build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpaceHexagon/energetic-ui.git"
+  },
+  "keywords": [
+    "material",
+    "material-design",
+    "energetic",
+    "ui"
+  ],
+  "author": "Jeremy Evans <openspacehexagon@gmail.com> (https://spacehexagon.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SpaceHexagon/energetic-ui/issues"
+  },
+  "homepage": "https://github.com/SpaceHexagon/energetic-ui#readme",
+  "devDependencies": {
+    "@types/react": "^16.4.18",
+    "@types/react-dom": "^16.0.9",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "typescript": "^3.1.3"
+  }
+}
