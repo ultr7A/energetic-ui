@@ -8,11 +8,7 @@
       "removeComments": true,
       "declaration": true,
       "sourceMap": true,
-      "jsx": "react",
-      "typeRoots": [
-        "./lib",
-        "node_modules/@types"
-      ]
+      "jsx": "react"
     },
     "include": [
       "./src/**/*.tsx",
