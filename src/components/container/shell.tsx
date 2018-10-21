@@ -142,7 +142,7 @@ export class Shell extends Component<ShellProps, any> {
             className={ this.props.htmlClassName || 'shell' }
             id='shell'
         >
-            {hasMenu ? new this.props.sideMenu({}, this.context) : ''}
+            {hasMenu ? this.props.sideMenu : ''}
             {menuOnly ? '' : (
               <div style={{ ...styles.inner(), ...this.props.innerStyle} as any}>
                   {this.props.children}

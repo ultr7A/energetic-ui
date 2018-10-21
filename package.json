@@ -4,7 +4,7 @@
   "description": "post-material ui react components and design language",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "rm -rf ./lib && tsc",
+    "prepare": "rm -rf ./lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
