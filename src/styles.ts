@@ -1,3 +1,35 @@
+import { isMobile } from "./util";
+
+export let shellStyles = {
+    shell: (hasMenu: boolean, menuOpen: boolean, menuOnly: boolean, noBackground: boolean, droppingFile: boolean ) => {
+    let mobile = isMobile()
+    return {
+      margin: 'auto',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      textAlign: 'center',
+      width: (menuOnly && !mobile ? '72px' : '100%'),
+      height: menuOnly && mobile ? '72px' : '100vh',
+      display: (menuOpen  ? "block" : "none"),
+      zIndex: (hasMenu ? 999999 : 1),
+      cursor: 'pointer',
+      backgroundColor: droppingFile ? 'rgba(0,0,0,0.8)' : 'rgba(0,0,0,0)',
+      backgroundImage: noBackground ? 'none' : 'linear-gradient(to bottom, #0c0c0c, #111111, #212121)', //'linear-gradient(#161616, #121212, #000000e6)', //'linear-gradient(to bottom, #0c0c0c, #111111, #212121)',
+      overflowY: 'auto',
+      overflowX: 'hidden',
+      paddingRight: '20px' //scrollbars are ugly (minimap would be nicer)
+    }
+  },
+  inner: () => {
+    let mobile = isMobile()
+    return {
+      paddingTop: mobile ? '166px' : '56px',
+      paddingLeft: mobile ? '0px' : '72px'
+    }
+  }
+};
+
 
 export let modalStyle = (mobile: boolean) => {
     return {

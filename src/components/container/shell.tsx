@@ -125,7 +125,7 @@ export class Shell extends Component<ShellProps, any> {
         noBackground = !!this.props.noBackground;
 
     return (
-        <div style={styles.shell(hasMenu, menuOpen, menuOnly, noBackground, this.state.droppingFile) as any}
+        <div style={shellStyles.shell(hasMenu, menuOpen, menuOnly, noBackground, this.state.droppingFile) as any}
             onDrop={e=> {
               e.stopPropagation()
               e.preventDefault()
@@ -142,44 +142,14 @@ export class Shell extends Component<ShellProps, any> {
             className={ this.props.htmlClassName || 'shell' }
             id='shell'
         >
+          
             {hasMenu ? this.props.sideMenu : ''}
             {menuOnly ? '' : (
-              <div style={{ ...styles.inner(), ...this.props.innerStyle} as any}>
+              <div style={{ ...shellStyles.inner(), ...this.props.innerStyle} as any}>
                   {this.props.children}
               </div>
             )}
         </div>
     )
-  }
-}
-
-
-let styles = {
-  shell: (hasMenu: boolean, menuOpen: boolean, menuOnly: boolean, noBackground: boolean, droppingFile: boolean ) => {
-    let mobile = isMobile()
-    return {
-      margin: 'auto',
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      textAlign: 'center',
-      width: (menuOnly && !mobile ? '72px' : '100%'),
-      height: menuOnly && mobile ? '72px' : '100vh',
-      display: (menuOpen  ? "block" : "none"),
-      zIndex: (hasMenu ? 999999 : 1),
-      cursor: 'pointer',
-      backgroundColor: droppingFile ? 'rgba(0,0,0,0.8)' : 'rgba(0,0,0,0)',
-      backgroundImage: noBackground ? 'none' : 'linear-gradient(to bottom, #0c0c0c, #111111, #212121)', //'linear-gradient(#161616, #121212, #000000e6)', //'linear-gradient(to bottom, #0c0c0c, #111111, #212121)',
-      overflowY: 'auto',
-      overflowX: 'hidden',
-      paddingRight: '20px' //scrollbars are ugly (minimap would be nicer)
-    }
-  },
-  inner: () => {
-    let mobile = isMobile()
-    return {
-      paddingTop: mobile ? '166px' : '56px',
-      paddingLeft: mobile ? '0px' : '72px'
-    }
   }
 }
