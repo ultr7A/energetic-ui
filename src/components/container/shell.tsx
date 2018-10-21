@@ -5,7 +5,7 @@ import { isMobile } from '../../util'
 
 interface ShellProps {
   dispatch?: (action: any) => void
-  sideMenu?: Component,
+  sideMenu?: any,
   cwd?: any[]
   currentSpace?: string
   worldUser?: string
@@ -142,7 +142,7 @@ export class Shell extends Component<ShellProps, any> {
             className={ this.props.htmlClassName || 'shell' }
             id='shell'
         >
-            {hasMenu ? this.props.sideMenu : ''}
+            {hasMenu ? new this.props.sideMenu({}, this.context) : ''}
             {menuOnly ? '' : (
               <div style={{ ...styles.inner(), ...this.props.innerStyle} as any}>
                   {this.props.children}
