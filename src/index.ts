@@ -1,6 +1,8 @@
-export * from "./components/button/button";
+import * as _Button from "./components/button/button";
+export let Button = _Button;
 export * from "./components/button/file-button";
-export * from "./components/card/card";
+import * as _Card from "./components/card/card";
+export let Card = _Card;
 export * from "./components/card/context-menu";
 export * from "./components/container/shell";
 export * from "./components/container/location-bar";
