@@ -1,8 +1,7 @@
 /* General shell / dashboard UI */
 import * as React from "react"; import { Component } from "react";
 
-import { isMobile } from '../../util'
-
+import { shellStyles } from '../../styles'
 interface ShellProps {
   dispatch?: (action: any) => void
   sideMenu?: any,
