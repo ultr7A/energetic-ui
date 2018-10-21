@@ -6,7 +6,7 @@
       "noImplicitAny": true,
       "strictNullChecks": true,
       "removeComments": true,
-      "declaration": false,
+      "declaration": true,
       "sourceMap": true,
       "jsx": "react",
       "typeRoots": [
@@ -19,6 +19,7 @@
       "./src/**/*.ts"
     ],
     "exclude": [
-      "node_modules"
+      "node_modules",
+      "lib"
     ]
   }
