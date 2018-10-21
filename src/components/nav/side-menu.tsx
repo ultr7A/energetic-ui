@@ -19,7 +19,7 @@ export class SideMenu extends Component<any, any> {
   }
 
   navigate ( evt: any, url: string ) {
-    this.props.history.push( url )
+    this.context.history.push( url )
   }
 
   onMouseOver ( evt: any ) {
