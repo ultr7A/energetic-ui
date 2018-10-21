@@ -122,7 +122,7 @@ export class Shell extends Component<ShellProps, any> {
         menuOnly = !!this.props.menuOnly,
         menuOpen = !!this.props.menuOpen,
         noBackground = !!this.props.noBackground;
-
+    const SideMenu = this.props.sideMenu;
     return (
         <div style={shellStyles.shell(hasMenu, menuOpen, menuOnly, noBackground, this.state.droppingFile) as any}
             onDrop={e=> {
@@ -142,7 +142,7 @@ export class Shell extends Component<ShellProps, any> {
             id='shell'
         >
           
-            {hasMenu ? this.props.sideMenu : ''}
+            {hasMenu ? <SideMenu /> : ''}
             {menuOnly ? '' : (
               <div style={{ ...shellStyles.inner(), ...this.props.innerStyle} as any}>
                   {this.props.children}
