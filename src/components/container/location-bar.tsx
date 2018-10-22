@@ -42,13 +42,7 @@ export class LocationBar extends Component<any, any> {
             }
             { this.props.showFileOptions ? (
               <div style={styles.fileOptions( isMobile() ) as any}>
-                { typeof this.props.children == "object" && (this.props.children as any).map( (child: Component) => {
-                  const Child = child as any;
-
-                  return (
-                    <Child { ...{filename: "", username: this.props.username}} ></Child>
-                  );
-                })}
+                { this.props.children }
               </div>) : ""
             }
         </div>
