@@ -45,7 +45,7 @@ export class Modal extends Component<ModalProps, any> {
   }
 
   render() {
-    if ( this.props.open ) {
+    if ( this.state.open ) {
       return (
        <div style={ styles.lightbox as any }>
           <div style={ styles.modal() as any } >
