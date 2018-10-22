@@ -12,25 +12,36 @@ interface ModalProps {
     open: boolean,
     title: string,
     hiddenWhenClosed?: boolean
+    onToggle?: (open: boolean) => any
 }
 
 export class Modal extends Component<ModalProps, any> {
 
   componentWillMount () {
     this.setState({
-      id: 0
+        activated: false;
+        id: 0
     })
   }
 
-  componentWillReceiveProps ( nextProps: any) {
-   
 
+  componentWillReceiveProps ( nextProps: ModalProps) {
+    if ( this.props.open == false && nextProps.open == true ) {
+        this.setState({
+            activated: true
+        });
+    } else if (this.props.open && nextProps.open == false) {
+        this.setState({
+            activated: false
+        });
+    }
   }
 
   toggleModal () {
     this.setState({
       activated: !this.state.activated
-    })
+    });
+    this.props.onToggle && this.props.onToggle(this.state.activated);
   }
 
   render() {
