@@ -55,10 +55,12 @@ export class LocationBar extends Component<any, any> {
     )
   }
 }
-{/* <TextEditor username={ this.props.username } path={ this.props.path } />
+
+
+/* <TextEditor username={ this.props.username } path={ this.props.path } />
 <NewFolder username={ this.props.username } path={ this.props.path } />
 <MoveFile username={ this.props.username } path={ this.props.path } />
-<SharingSettings username={ this.props.username } path={ this.props.path } /> */}
+<SharingSettings username={ this.props.username } path={ this.props.path } /> */
 let styles = {
   bar: () => {
     return {
