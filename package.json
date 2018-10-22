@@ -1,6 +1,6 @@
 {
   "name": "energetic-ui",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "post-material ui react components and design language",
   "main": "./lib/index.js",
   "scripts": {

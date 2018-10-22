@@ -6,9 +6,12 @@ import {
   modalStyle,
 } from '../../styles'
 import {rgba, isMobile} from '../../util'
+import { FileButton } from "../..";
 
-type ModalProps = {
-    open: boolean
+interface ModalProps {
+    open: boolean,
+    title: string,
+    hiddenWhenClosed?: boolean
 }
 
 export class Modal extends Component<ModalProps, any> {
@@ -39,10 +42,14 @@ export class Modal extends Component<ModalProps, any> {
           </div>
         </div>
       )
-    } else {
+    } else if (this.props.hiddenWhenClosed) {
       return (
         <span></span>
       )
+    } else {
+        return (
+            <FileButton title={this.props.title} onClick={ () => { this.toggleModal() } } />
+        )
     }
   }
 }
