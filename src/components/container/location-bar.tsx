@@ -1,8 +1,4 @@
 import * as React from "react"; import { Component } from "react";
-import { NewFolder } from '../../modal/new-folder'
-import { TextEditor } from '../../modal/text-editor'
-import { SharingSettings } from '../../modal/sharing-settings'
-import { MoveFile } from '../../modal/move-file'
 import { isMobile } from '../../util'
 
 type LocationBarProps = {
@@ -11,9 +7,7 @@ type LocationBarProps = {
   label: string,
   style: any,
   showFileOptions: boolean,
-  onOptionClick: Function,
-  extraOption: any,
-  extraOptionProps: { [_:string]: any }
+  onOptionClick: Function
 }
 
 export class LocationBar extends Component<any, any> {
@@ -25,7 +19,6 @@ export class LocationBar extends Component<any, any> {
     })
   }
   render() {
-    const ExtraOption = this.props.extraOption || "";
     return (
         <div style={{ ...styles.bar(), ...styles.mobile(), ...this.props.style}}>
           <div onClick={ e=> { this.props.onItemSelect(this.props.label, 0) } }
@@ -49,23 +42,23 @@ export class LocationBar extends Component<any, any> {
             }
             { this.props.showFileOptions ? (
               <div style={styles.fileOptions( isMobile() ) as any}>
-                
-                <TextEditor username={ this.props.username } path={ this.props.path } />
-                <NewFolder username={ this.props.username } path={ this.props.path } />
-                <MoveFile username={ this.props.username } path={ this.props.path } />
-                <SharingSettings username={ this.props.username } path={ this.props.path } />
-                {! isMobile() ? 
-                  <ExtraOption { ...{filename: "", username: this.props.username} } />
-      
-                : "" } 
+                { typeof this.props.children == "object" && (this.props.children as any).map( (child: Component) => {
+                  const Child = child as any;
 
+                  return (
+                    <Child { ...{filename: "", username: this.props.username}} ></Child>
+                  );
+                })}
               </div>) : ""
             }
         </div>
     )
   }
 }
-
+{/* <TextEditor username={ this.props.username } path={ this.props.path } />
+<NewFolder username={ this.props.username } path={ this.props.path } />
+<MoveFile username={ this.props.username } path={ this.props.path } />
+<SharingSettings username={ this.props.username } path={ this.props.path } /> */}
 let styles = {
   bar: () => {
     return {
