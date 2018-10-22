@@ -7,27 +7,20 @@ import {
 } from '../../styles'
 import {rgba, isMobile} from '../../util'
 
-export class SharingSettings extends Component<any, any> {
+type ModalProps = {
+    open: boolean
+}
+
+export class Modal extends Component<ModalProps, any> {
 
   componentWillMount () {
-
     this.setState({
-      activated: false,
-      editMode: false,
       id: 0
     })
   }
 
   componentWillReceiveProps ( nextProps: any) {
-    if ( this.props.activated == false && nextProps.activated == true ) {
-        this.setState({
-            activated: true
-        });
-    } else if (this.props.activated && nextProps.activated == false) {
-        this.setState({
-            activated: false
-        });
-    }
+   
 
   }
 
@@ -38,7 +31,7 @@ export class SharingSettings extends Component<any, any> {
   }
 
   render() {
-    if ( this.state.activated ) {
+    if ( this.props.open ) {
       return (
        <div style={ styles.lightbox as any }>
           <div style={ styles.modal() as any } >
