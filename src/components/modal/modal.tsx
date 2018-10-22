@@ -11,7 +11,7 @@ import { FileButton } from "../..";
 interface ModalProps {
     open: boolean,
     title: string,
-    hiddenWhenClosed?: boolean
+    hiddenWhenClosed?: boolean,
     onToggle?: (open: boolean) => any
 }
 
@@ -19,7 +19,7 @@ export class Modal extends Component<ModalProps, any> {
 
   componentWillMount () {
     this.setState({
-        activated: false;
+        activated: false,
         id: 0
     })
   }
