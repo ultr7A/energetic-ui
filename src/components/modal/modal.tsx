@@ -41,7 +41,7 @@ export class Modal extends Component<ModalProps, any> {
     this.setState({
       activated: !this.state.activated
     });
-    this.props.onToggle && this.props.onToggle(this.state.activated);
+    this.props.onToggle && this.props.onToggle(!this.state.activated);
   }
 
   render() {
