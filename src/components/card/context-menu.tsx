@@ -119,24 +119,23 @@ let styles = {
       marginRight: '0.5em',
       marginLeft: '8px',
       marginBottom: '0.5em',
-      backgroundColor: 'rgb(203, 203, 203)',
+      backgroundColor: 'rgb(34, 34, 34)',
       textAlign: "center",
       borderRadius: "5px",
-      color: "black",
-      boxShadow: "rgba(0, 0, 0, 0.7) 1px 0.35em 1.2em",
+      color: "white",
+      boxShadow: "rgba(0, 0, 0, 0.27) 6px 1em 1.2em 8px",
       fontWeight: "600",
       border: "1px rgba(77, 77, 77, 0.64) solid"
     }
   },
   link: {
-    color: "#008523",
     textDecoration: 'none'
   },
   option: {
     textAlign: 'left',
     paddingLeft: '0.8em',
     paddingBottom: '0.2em',
-    borderBottom: '0.2em #bbbbbb solid'
+    borderBottom: '0.2em solid rgb(49, 48, 48)'
 
   },
   options: {
