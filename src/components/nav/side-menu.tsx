@@ -2,7 +2,24 @@ import * as React from "react"; import { Component } from "react";
 import { Tab } from './tab'
 import { isMobile } from '../../util'
 
-export class SideMenu extends Component<any, any> {
+export interface SideMenuOption {
+  title: string
+  image?: string
+  style?: any
+  compact?: boolean
+  clickHandler?: Function
+  navigate?: {
+    route: string
+  }
+}
+
+export interface SideMenuProps {
+  options: SideMenuOption[]
+  toggleMenu?: (force?: boolean) => void,
+  toggleVRMode?: () => void
+}
+
+export class SideMenu extends Component<SideMenuProps, any> {
 
   componentWillMount () {
     this.setState({
@@ -11,11 +28,11 @@ export class SideMenu extends Component<any, any> {
   }
 
   toggleMenu ( force?: boolean ) {
-      this.props.toggleMenu(force)
+    this.props.toggleMenu && this.props.toggleMenu(force)
   }
 
   toggleVRMode () {
-      this.props.toggleVRMode()
+      this.props.toggleVRMode && this.props.toggleVRMode()
   }
 
   navigate ( evt: any, url: string ) {
@@ -34,81 +51,27 @@ export class SideMenu extends Component<any, any> {
     })
   }
 
+  private getClickHandler(option: SideMenuOption): Function {
+    return option.navigate != undefined 
+    ? (e: any) => {  this.navigate(e, (option as any).navigate.route) } 
+    : option.clickHandler ? option.clickHandler : () => {}
+  }
+
   render() {
     return (
         <div style={styles.sideMenu() as any} >
           <div style={styles.inner() as any} onMouseOver={ e=> this.onMouseOver(e) } onMouseOut={ e=> this.onMouseOut(e) }>
-            <Tab clickHandler={ (e: any) => { this.toggleMenu(); this.navigate(e, "");  } }
-                 image="/data/images/convolvr2.png"
-                 buttonStyle={{ backgroundSize: "100%" }}
-                 showTitle={ false }
-                 compact={ isMobile() }
-                 title="Home"
-            /> 
-            <Tab clickHandler={ (e: any) => { this.navigate(e, "/new-world") } }
-                 showTitle={ this.state.menuHover }
-                 image="/data/images/plus.png"
-                 title="New"
-            />
-            <Tab clickHandler={ (e: any) => { this.navigate(e, "/spaces") }}  
-                 image="/data/images/circle-a.png"
-                 showTitle={ this.state.menuHover }
-                 compact={ isMobile() }
-                 title="Spaces"
-            />
-            <Tab clickHandler={ (e: any) => { this.navigate(e, "/places") }}
-                 showTitle={ this.state.menuHover }
-                 image="/data/images/places-s.png"
-                 style={ styles.mobileHidden() }
-                 compact={ isMobile() }
-                 title="Places"
-            />
-            <Tab clickHandler={ (e: any) => { this.navigate(e, "/inventory") } }
-                 showTitle={ this.state.menuHover }
-                 image="/data/images/entities.png"
-                 compact={ isMobile() }
-                 title="Inventory"
-            />
-            <Tab clickHandler={ (e: any) => { this.navigate(e, "/chat") } }
-                 showTitle={ this.state.menuHover }
-                 image="/data/images/chat.png"
-                 compact={ isMobile() }
-                 title="Chat"
-            />
-            <Tab clickHandler={ (e: any) => { this.navigate(e, "/files") }}
-                 showTitle={ this.state.menuHover }
-                 image="/data/images/voxel-white.png"
-                 compact={ isMobile() }
-                 title="Data"
-            />
-            <Tab clickHandler={ (e: any) => { this.navigate(e, "/network") }}
-                 showTitle={ this.state.menuHover }
-                 image="/data/images/network.png"
-                 style={ styles.mobileHidden() }
-                 compact={ isMobile() }
-                 title="Network"
-            />
-            <Tab clickHandler={ (e: any) => { this.navigate(e, "/profile") } }
-                 showTitle={ this.state.menuHover }
-                 image="/data/images/person-s2.png"
-                 compact={ isMobile() }
-                 style={ styles.mobileHidden() }
-                 title="Profile"
-            />
-            <Tab clickHandler={ (e: any) => { this.navigate(e, "/login") } }
-                 showTitle={ this.state.menuHover }
-                 title="Sign In"
-                 style={ styles.mobileHidden() }
-                 compact={ isMobile() }
-                 image="/data/images/logout.png"
-            />
-            <Tab clickHandler={ (e: any) => { this.navigate(e, "/settings") } }
-                 image="/data/images/configure-h.png"
-                 showTitle={ this.state.menuHover }
-                 compact={ isMobile() }
-                 title="Settings"
-                 
-            />
+          { 
+            this.props.options.map((opt: SideMenuOption) => (
+              <Tab clickHandler={this.getClickHandler(opt)}
+                  showTitle={ this.state.menuHover }
+                  image={opt.image}
+                  style={ styles.mobileHidden() }
+                  compact={ isMobile() }
+                  title={opt.title}
+              />
+            )) 
+          }
           </div>
         </div>
     )
