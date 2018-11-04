@@ -32,11 +32,11 @@ export class ToggleInput extends Component<any, any> {
     render() {
 
         let innerStyle = this.props.innerStyle != false ? {...styles.inner, ...this.props.innerStyle } : styles.inner,
-            style = this.props.style != false ? {...styles.button, ...this.props.style } : styles.button
+            style = this.props.style != false ? {...styles.vectorInput, ...styles.button, ...this.props.style } : styles.button
         innerStyle.backgroundImage = 'url(' + (this.props.image != null ? this.props.image : "") + ')';
 
         return (
-            <div style={styles.vectorInput} className="ui-vector-input" onClick={ (evt: any)=> this.onChange(evt) }>
+            <div style={style} className="ui-vector-input" onClick={ (evt: any)=> this.onChange(evt) }>
                <div style={{ ...innerStyle, ...this.indicateState() }}></div>
             </div>
         )
