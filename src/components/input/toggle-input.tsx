@@ -19,7 +19,7 @@ export class ToggleInput extends Component<any, any> {
         return this.state.values
     }
 
-    onChange(event: any, i: number) {
+    onChange(event: any) {
         this.props.onChange && this.props.onChange(!this.props.value, event)
     }
 
@@ -36,7 +36,7 @@ export class ToggleInput extends Component<any, any> {
         innerStyle.backgroundImage = 'url(' + (this.props.image != null ? this.props.image : "") + ')';
 
         return (
-            <div style={styles.vectorInput} className="ui-vector-input">
+            <div style={styles.vectorInput} className="ui-vector-input" onClick={ (evt: any)=> this.onChange(evt) }>
                <div style={{ ...innerStyle, ...this.indicateState() }}></div>
             </div>
         )
