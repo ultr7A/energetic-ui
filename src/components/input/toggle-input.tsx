@@ -25,8 +25,13 @@ export class ToggleInput extends Component<any, any> {
 
     indicateState() {
         return this.props.value
-            ? { left: 0, backgroundColor: "#00e200", boxShadow: "0px 0px 10px #00e200" }
-            : { right: 0, backgroundColor: "#e20000" }
+            ? { right: 0, 
+                backgroundColor: "#00e200", 
+                boxShadow: "0px 0px 10px #00e200",
+                marginRight: "0.6em",
+                marginLeft: "auto" 
+            }
+            : { left: 0, backgroundColor: "#e20000" }
     }
 
     render() {
