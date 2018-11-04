@@ -68,7 +68,7 @@ let styles = {
     inner: {
         transition: 'all 0.2s linear',
         width: '20px',
-        height: '100%',
+        height: '20px',
         display: 'block',
         backgroundSize: '60%',
         backgroundRepeat: 'no-repeat',
