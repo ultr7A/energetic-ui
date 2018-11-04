@@ -52,7 +52,7 @@ let styles = {
     button: {
         display: 'inline-block',
         width: '60px',
-        height: '60px'
+        height: '20px'
     },
     vectorInput: {
         display: 'inline-block',
