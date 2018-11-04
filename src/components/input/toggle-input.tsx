@@ -25,8 +25,8 @@ export class ToggleInput extends Component<any, any> {
 
     indicateState() {
         return this.props.value
-            ? { left: 0 }
-            : { right: 0 }
+            ? { left: 0, backgroundColor: "#00e200", boxShadow: "0px 0px 10px #00e200" }
+            : { right: 0, backgroundColor: "#e20000" }
     }
 
     render() {
@@ -52,14 +52,18 @@ let styles = {
     vectorInput: {
         display: 'inline-block',
         height: '20px',
+        width: '62px',
         paddingBottom: '0.5em',
         paddingLeft: '0.75em',
-        marginBottom: '0.25em'
+        paddingTop: '0.25em',
+        marginBottom: '0.25em',
+        background: 'linear-gradient(to top, rgb(12, 12, 12), rgb(17, 17, 17), rgb(33, 33, 33))',
+        borderRadius: '2px'
     },
     inner: {
         transition: 'all 0.2s linear',
-        width: '60px',
-        height: '60px',
+        width: '20px',
+        height: '100%',
         display: 'block',
         backgroundSize: '60%',
         backgroundRepeat: 'no-repeat',
