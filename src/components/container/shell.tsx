@@ -14,6 +14,7 @@ interface ShellProps {
   listFiles?: Function
   sendMessage?: Function
   toggleMenu?: Function
+  onDropFiles?: Function
   noBackground?: boolean
   stereoMode?: boolean
   htmlClassName?: string
@@ -37,78 +38,10 @@ export class Shell extends Component<ShellProps, any> {
 
   public className: string
 
-  componentWillMount () {
+  componentDidMount () {
     this.setState({
       droppingFile: false
     })
-  }
-
-  componentWillUpdate(nextProps: any, nextState: any) {
-
-  }
-
-  uploadFiles ( files: any[] ) {
-    let dir = (this.props.cwd||[]).join("/"); console.log("upload files dir ", dir)
-    
-    if ( !!this.props.currentSpace ) {
-      if ( (dir == "/" || dir == "") && this.props.worldUser == this.props.username ) {
-        dir = "/spaces/"+this.props.currentSpace
-      } 
-    }
-    if ((this.props.reactPath+"").indexOf("/chat") > -1) {
-      dir = "chat-uploads"
-    }
-
-		let xhr = new XMLHttpRequest(),
-			  formData = new FormData(),
-			  ins = files.length,
-        thumbs = [],
-        images = /(\.jpg|\.jpeg|\.png|\.webp)$/i,
-        username = this.props.username,
-        fileNames: string[] = [],
-        shell = this
-
-    if (username == 'Human') {
-      username = 'public'
-    }
-		for (let x = 0; x < ins; x++) {
-      if (images.test(files[x].name)) {
-        thumbs.push(files[x]);
-      }
-		  formData.append("files", files[x]);
-      fileNames.push(files[x].name.replace(/\s/g, '-'))
-		}
-		xhr.onload = function () {
-			if (xhr.status == 200) {
-				console.log("finished uploading")
-        if (shell.props.listFiles) {
-          shell.props.listFiles(shell.props.username, (shell.props.cwd||[]).join("/"))  
-        }
-			}
-		}
-		xhr.open("POST", "/api/files/upload-multiple/"+username+"?dir="+dir, true);
-		//xhr.setRequestHeader("x-access-token", localStorage.getItem("token"));
-		if ("upload" in new XMLHttpRequest) { // add upload progress event
-				xhr.upload.onprogress = function ( event ) {
-				if (event.lengthComputable) {
-          let complete = (event.loaded / event.total * 100 | 0);
-          
-					console.log(complete)
-          if (complete == 100) {
-            if (window.location.href.indexOf("/chat") > -1) {
-              setTimeout(()=>{
-                shell.props.sendMessage && 
-                shell.props.sendMessage("Uploaded "+(ins > 1 ? ins+ " Files" : "a File"), from, fileNames, null, (window as any).three.world.name)
-              }, 500);
-            }
-          }
-				}
-      }
-		}
-    xhr.send(formData)
-    let from = this.props.username
-
-    this.setDropBackground(false)
   }
 
   setDropBackground (mode: boolean) {
@@ -128,8 +61,9 @@ export class Shell extends Component<ShellProps, any> {
             onDrop={e=> {
               e.stopPropagation()
               e.preventDefault()
-              this.uploadFiles((e.target as any).files || e.dataTransfer.files)}
-            }
+              this.props.onDropFiles && this.props.onDropFiles((e.target as any).files || e.dataTransfer.files);
+              this.setDropBackground(false)
+            }}
             onDragEnter={e=>{  e.preventDefault(); e.stopPropagation(); this.setDropBackground(true) }}
             onDragOver={e=> {  e.preventDefault(); e.stopPropagation(); }}
             onDragLeave={e=>{  e.preventDefault(); e.stopPropagation(); this.setDropBackground(false) }}

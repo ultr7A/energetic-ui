@@ -13,11 +13,6 @@ type LocationBarProps = {
 export class LocationBar extends Component<any, any> {
   public defaultProps: LocationBarProps;
   
-  componentWillMount () {
-    this.setState({
-
-    })
-  }
   render() {
     return (
         <div style={{ ...styles.bar(), ...styles.mobile(), ...this.props.style}}>

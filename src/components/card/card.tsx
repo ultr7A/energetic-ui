@@ -24,7 +24,7 @@ export class Card extends Component<CardProps, any> {
 
   public props: CardProps
 
-  componentWillMount () {
+  componentDidMount () {
    this.setState({
      isHovering: false
    })

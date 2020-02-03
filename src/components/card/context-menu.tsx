@@ -37,7 +37,7 @@ export class ContextMenu extends Component<ContextMenuProps, any> {
 
   public props: ContextMenuProps
 
-  componentWillMount () {
+  componentDidMount () {
     this.setState({
       activated: false
     })

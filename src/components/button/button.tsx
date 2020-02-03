@@ -37,7 +37,7 @@ export class Button extends Component<ButtonProps, any> {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       mouse: {
         x: 0,
@@ -55,11 +55,11 @@ export class Button extends Component<ButtonProps, any> {
   }
 
   private onMouseMove(event: MouseEvent) {
-    if (this.onMouseDown) {
+    if (this.state.mouseDown) {
       this.setState({
         mouse: {
-          x: event.layerX,
-          y: event.layerY
+          x: (event as any).layerX,
+          y: (event as any).layerY
         }
       })
     }
