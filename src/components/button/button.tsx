@@ -37,13 +37,14 @@ export class Button extends Component<ButtonProps, any> {
     }
   }
 
-  componentDidMount() {
-    this.setState({
+  constructor(props: ButtonProps) {
+    super(props);
+    this.state = {
       mouse: {
         x: 0,
         y: 0
       }
-    })
+    }
   }
 
   private onMouseDown(event: any) {
@@ -72,7 +73,7 @@ export class Button extends Component<ButtonProps, any> {
       
     innerStyle.backgroundImage = 'url('+(this.props.image != null ? this.props.image : "")+')';
     if (this.state.mouseDown && this.props.color) {
-      innerStyle = {...innerStyle, ...styles.mouseDown(this.props.color, this.state.mouse.x, this.state.mouse.y)}
+      innerStyle = {...innerStyle, ...(styles.mouseDown(this.props.color, this.state.mouse.x, this.state.mouse.y))}
     }
     
     return (
