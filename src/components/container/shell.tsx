@@ -27,6 +27,14 @@ interface ShellProps {
 
 export class Shell extends Component<ShellProps, any> {
 
+  constructor(props: ShellProps) {
+    super(props);
+
+    this.state = {
+      droppingFile: false
+    }
+  }
+
   static get defaultProps () {
     return {
       noBackground: false,
@@ -41,13 +49,13 @@ export class Shell extends Component<ShellProps, any> {
   componentDidMount () {
     this.setState({
       droppingFile: false
-    })
+    });
   }
 
   setDropBackground (mode: boolean) {
     this.setState({
       droppingFile: mode
-    })
+    });
   }
 
   render() {
