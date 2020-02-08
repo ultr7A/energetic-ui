@@ -39,7 +39,7 @@ export class Panel extends Component<PanelProps, PanelState> {
     }
 
     computeStyle() {
-        const style = {...panelStyle, width: "1em", height: "1em", overflow: "hidden", ...(this.props.customStyle ? this.props.customStyle : {})};
+        const style = {...panelStyle, height: "1em", overflow: "hidden", ...(this.props.customStyle ? this.props.customStyle : {})};
 
         if (this.state.open) {
             style.height = "auto";
