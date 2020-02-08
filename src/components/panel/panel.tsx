@@ -52,11 +52,13 @@ export class Panel extends Component<PanelProps, PanelState> {
     render() {
         return (
             <aside style={this.computeStyle() as any}>
-                <Card 
-                    showTitle={true} 
-                    title={this.props.title || "Panel"} 
-                    clickHandler={()=> this.onToggle()} 
-                />
+                <div style={{ float: "left" }}>
+                    <Card 
+                        showTitle={true} 
+                        title={this.props.title || "Panel"} 
+                        clickHandler={()=> this.onToggle()} 
+                    />
+                </div>
                 <div style={{ ...controlStyle, ...(this.props.controlStyle ? this.props.controlStyle : {})} as any}
                     onPointerDown={(e)=> this.onToggle()}
                 >
