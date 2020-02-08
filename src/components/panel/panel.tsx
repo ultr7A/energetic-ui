@@ -2,7 +2,8 @@ import * as React from "react"; import { Component } from "react";
 
 const panelStyle = {
     display: "inline-block",
-    height: "100%"
+    height: "1em",
+    overflow: "visible"
 };
 const controlStyle = {
     display: "block"
@@ -34,11 +35,13 @@ export class Panel extends Component<PanelProps, PanelState> {
     }
 
     computeStyle() {
-        const style = {...panelStyle, width: "1em", ...(this.props.customStyle ? this.props.customStyle : {})};
+        const style = {...panelStyle, width: "1em", height: "1em", overflow: "hidden", ...(this.props.customStyle ? this.props.customStyle : {})};
 
         if (this.state.open) {
             style.width = this.props.customExpandedWidth ? this.props.customExpandedWidth : "5em";
-        }
+            style.height = "auto";
+            style.overflow = "visible";
+        } 
 
         return style;
     }

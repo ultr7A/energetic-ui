@@ -20,15 +20,16 @@ interface CardProps {
 }
 export class Card extends Component<CardProps, any> {
 
+  constructor(props: CardProps) {
+    super(props);
+    this.state = {
+        isHovering: false
+    };
+  }
+
   private defaultProps: CardProps
 
   public props: CardProps
-
-  componentDidMount () {
-   this.setState({
-     isHovering: false
-   })
-  }
 
   handleContextAction (name: string, e: any) {
     let data: any = {}
