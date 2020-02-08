@@ -10,6 +10,7 @@ export { MenuItem } from "./components/nav/menu-item";
 export { SideMenu } from "./components/nav/side-menu";
 export { Tab } from "./components/nav/tab";
 export { Modal } from "./components/modal/modal";
+export { Panel } from "./components/panel/panel";
 export * from "./styles";
 export * from "./util";
 
