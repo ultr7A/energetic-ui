@@ -4,11 +4,13 @@ import { Card } from "../card/card";
 const panelStyle = {
     display: "inline-block",
     height: "1em",
+    width: "100%",
     overflow: "visible"
 };
 const controlStyle = {
     display: "inline-block",
     float: "right",
+    paddingRight: "0.5em"
 };
 
 export interface PanelProps {
