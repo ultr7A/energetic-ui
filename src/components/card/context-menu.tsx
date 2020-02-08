@@ -37,10 +37,12 @@ export class ContextMenu extends Component<ContextMenuProps, any> {
 
   public props: ContextMenuProps
 
-  componentDidMount () {
-    this.setState({
+  constructor(props: ContextMenuProps) {
+    super(props);
+
+    this.state = {
       activated: false
-    })
+    };
   }
 
   toggle () {
