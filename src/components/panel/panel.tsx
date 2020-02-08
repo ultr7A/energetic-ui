@@ -3,7 +3,7 @@ import { Card } from "../card/card";
 
 const panelStyle = {
     display: "inline-block",
-    height: "1em",
+    height: "2em",
     width: "100%",
     overflow: "visible"
 };
