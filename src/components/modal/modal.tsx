@@ -8,14 +8,19 @@ import {
 import {rgba, isMobile} from '../../util'
 import { FileButton } from "../..";
 
-interface ModalProps {
+export interface ModalProps {
     open: boolean,
     title: string,
     hiddenWhenClosed?: boolean,
     onToggle?: (open: boolean) => any
 }
 
-export class Modal extends Component<ModalProps, any> {
+interface ModalState {
+  activated: boolean;
+  id: number;
+}
+
+export class Modal extends Component<ModalProps, ModalState> {
 
   componentWillMount () {
     this.setState({
