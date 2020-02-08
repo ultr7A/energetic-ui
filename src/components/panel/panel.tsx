@@ -52,17 +52,19 @@ export class Panel extends Component<PanelProps, PanelState> {
     render() {
         return (
             <aside style={this.computeStyle() as any}>
-                <div style={{ float: "left" }}>
-                    <Card 
-                        showTitle={true} 
-                        title={this.props.title || "Panel"} 
-                        clickHandler={()=> this.onToggle()} 
-                    />
-                </div>
-                <div style={{ ...controlStyle, ...(this.props.controlStyle ? this.props.controlStyle : {})} as any}
-                    onPointerDown={(e)=> this.onToggle()}
-                >
-                    X
+                <div style={{width: "100%"}}>
+                    <div style={{ float: "left", "display": "inline-block" }}>
+                        <Card 
+                            showTitle={true} 
+                            title={this.props.title || "Panel"} 
+                            clickHandler={()=> this.onToggle()} 
+                        />
+                    </div>
+                    <div style={{ ...controlStyle, ...(this.props.controlStyle ? this.props.controlStyle : {})} as any}
+                        onPointerDown={(e)=> this.onToggle()}
+                    >
+                        X
+                    </div>
                 </div>
                 { this.props.children }
             </aside>
