@@ -53,19 +53,25 @@ export class Panel extends Component<PanelProps, PanelState> {
         return (
             <aside style={this.computeStyle() as any}>
                 <div style={{width: "100%", display: "inline-block"}}>
-                    <div style={{ float: "left", "display": "inline-block" }}>
-                        <Card 
-                            showTitle={true} 
-                            compact={true}
-                            title={this.props.title || "Panel"} 
-                            clickHandler={()=> this.onToggle()} 
-                        />
-                    </div>
-                    <div style={{ ...controlStyle, ...(this.props.controlStyle ? this.props.controlStyle : {})} as any}
-                        onPointerDown={(e)=> this.onToggle()}
-                    >
-                        X
-                    </div>
+                    { this.state.open ?
+                        (
+                            <div style={{ ...controlStyle, ...(this.props.controlStyle ? this.props.controlStyle : {})} as any}
+                                onPointerDown={(e)=> this.onToggle()}
+                            >
+                            X
+                            </div>
+                        )
+                    : (
+                        <div style={{ float: "left", "display": "inline-block" }}>
+                            <Card 
+                                showTitle={true} 
+                                compact={true}
+                                title={this.props.title || "Panel"} 
+                                clickHandler={()=> this.onToggle()} 
+                            />
+                        </div>
+                    ) 
+                   } 
                 </div>
                 <div style={{textAlign: "left"}}>
                     { this.props.children }
