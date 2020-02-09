@@ -52,10 +52,11 @@ export class Panel extends Component<PanelProps, PanelState> {
     render() {
         return (
             <aside style={this.computeStyle() as any}>
-                <div style={{width: "100%"}}>
+                <div style={{width: "100%", display: "inline-block"}}>
                     <div style={{ float: "left", "display": "inline-block" }}>
                         <Card 
                             showTitle={true} 
+                            compact={true}
                             title={this.props.title || "Panel"} 
                             clickHandler={()=> this.onToggle()} 
                         />
@@ -66,7 +67,7 @@ export class Panel extends Component<PanelProps, PanelState> {
                         X
                     </div>
                 </div>
-                <div>
+                <div style={{textAlign: "left"}}>
                     { this.props.children }
                 </div>
             </aside>
